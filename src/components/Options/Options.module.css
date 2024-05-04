@@ -1,0 +1,14 @@
+.options{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.button{
+    font-size: 25px;
+    font-weight: 600;
+    padding: 10px;
+}

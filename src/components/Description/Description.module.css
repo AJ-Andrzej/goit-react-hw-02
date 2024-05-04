@@ -1,0 +1,13 @@
+.description{
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.title{
+    font-size: 80px;
+}
+.text{
+    font-size: 30px;
+}
