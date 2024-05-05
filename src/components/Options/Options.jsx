@@ -5,13 +5,13 @@ const Button = ({ children, onClick,}) => {
         <button className={css.button} onClick={onClick}>{children}</button>
     )
 }
-export default function Options({feedbacks, handelClick, reset, total}) {
+export default function Options({handleClick, reset, total}) {
 
     return (
         <div className={css.options}>
-            <Button onClick={() => handelClick(feedbacks, "good", feedbacks.good)}>Good</Button>
-            <Button onClick={() => handelClick(feedbacks, "neutral", feedbacks.neutral)}>Neutral</Button>
-            <Button onClick={() => handelClick(feedbacks, "bad", feedbacks.bad)}>Bad</Button>
+            <Button onClick={() => handleClick("good")}>Good</Button>
+            <Button onClick={() => handleClick("neutral")}>Neutral</Button>
+            <Button onClick={() => handleClick("bad")}>Bad</Button>
             {total >=1 && <Button onClick ={reset}>Reset</Button>}
             
         </div>

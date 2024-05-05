@@ -1,6 +1,7 @@
 import Description from '../Description/Description'
 import Options from '../Options/Options'
 import Feedback from '../Feedback/Feedback'
+import Notification from '../Notification/Notification'
 import { useState } from 'react'
 
 
@@ -13,10 +14,10 @@ export default function App() {
     const totalFeedback = feedbacks.good + feedbacks.bad + feedbacks.neutral;
     const positive = Math.round((feedbacks.good / totalFeedback) * 100)
 
-    const handelClick = (dataObj, property, value) => {
+    const handleClick = (property) => {
         setFeedbacks({
-            ...dataObj,
-            [property]: value + 1,
+            ...feedbacks,
+            [property]: feedbacks[property] + 1,
         }
         )
    
@@ -36,8 +37,15 @@ export default function App() {
             return (
             <>
                 <Description />
-                    <Options feedbacks={feedbacks} total={totalFeedback} handelClick={handelClick} reset={handelReset} />
-                    <Feedback feedbacks={feedbacks} total={totalFeedback} positive={positive} />
+                    <Options
+                        total={totalFeedback}
+                        handleClick={handleClick}
+                        reset={handelReset} />
+                    {totalFeedback >= 1 && <Feedback
+                        feedbacks={feedbacks}
+                        total={totalFeedback}
+                        positive={positive} />}
+                     {totalFeedback < 1 && <Notification/>}
             </>
         )
 }
